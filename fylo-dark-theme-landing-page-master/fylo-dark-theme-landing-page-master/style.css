@@ -1,0 +1,580 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+/* ! VARIABLES */
+
+:root {
+
+    /* Color Variables */
+    --intro-signup : hsl(217, 28%, 15%);
+    --main-bg : hsl(218, 28%, 13%);
+    --footer-bg : hsl(216, 53%, 9%);
+    --testimonial-bg : hsl(219, 30%, 18%);
+    --cyan :  hsl(176, 68%, 64%);
+    --blue : hsl(198, 60%, 50%);
+    --light-red : hsl(0, 100%, 63%);
+    --white : hsl(0, 0%, 100%);
+}
+
+/* !  GENERAL STYLES*/
+
+*,
+*::before,
+*::after {       /* This is to reset browser default styles */
+    margin: 0;
+    box-sizing: inherit;
+    padding: 0;
+    list-style-type: none;
+}
+
+html {
+     font-family: 'Open Sans', sans-serif;
+     font-weight: 400;
+     box-sizing: border-box;
+     font-size: 14px;
+     scroll-behavior: smooth;
+     -webkit-font-smoothing: antialiased;    /* Makes font families clearer*/
+     -moz-osx-font-smoothing: grayscale;
+     background: var(--main-bg);
+     color: var(--white);
+}
+
+ h2 , 
+ h3,
+  .cta {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+}
+
+a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+ h2{
+    font-size: calc(2rem + .85rem) ; 
+}
+
+main {
+    position: relative;
+    padding-bottom: 200px;
+}
+
+
+
+/* !  HEADER STYLINGS */
+
+/* NAVBAR */
+.navbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: calc(4em + .25em) 5.8em;
+    background: var(--intro-signup)
+}
+
+.nav-items {
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    position: relative;
+}
+
+.nav-link::before {
+    content: "";
+    position: absolute;
+    width: 40%;
+    height: 2px;
+    background-color: var(--cyan);
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: all .6s;
+    left: 0;
+    bottom: -3px;
+}
+
+.nav-link:hover::before {
+    transform: scaleX(1);
+}
+
+.nav-items :not(:last-child) {
+    padding-right: 4.285em ;
+}
+
+.current {
+    padding-right: 4em;
+}
+
+/* !  MAIN SECTION */
+
+/* SHOWCASE SECTION STYLING */
+.showcase {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    text-align: center;
+    background-color: var(--intro-signup);
+    background-image: url(./images/bg-curvy-desktop.svg);
+    background-position:  bottom;
+    background-repeat: no-repeat;
+    background-size: 100% 19.29em;
+}
+
+.showcase img {
+    width: 52.8em;
+    height: 38.1em;
+}
+
+.showcase h2 {
+    width: 53rem;   /* We used rem  instead of px for fluid typography*/
+    margin: 3.1rem;
+}
+
+.showcase p {
+    width: 44rem;
+    padding: 0  2.14em;
+    font-size: 1.3rem;
+    line-height: 1.5;
+}
+
+.cta {
+    width: 20em;
+    padding: 1.43em 0 ;
+    border-radius: 3.6em;
+    margin: 2.14em 0;
+    background: linear-gradient(to right, var(--cyan), var(--blue));
+    border: none;
+    outline: none;
+    display: inline-block;
+    position: relative;
+    background-image: url(./images/pattern.png);
+    background-size: 40px 40px;
+    transition: all ease 0.3s;
+    z-index: 1;
+}
+
+.cta,
+.cta:hover,
+.cta:active,
+.cta:focus {
+    animation: loading-button-animation 2s linear infinite;
+}
+
+@keyframes loading-button-animation {
+    from {
+      background-position: 0 0;
+    }
+  
+    to {
+      background-position: 40px 40px;
+    }
+  }
+
+/* FEATURES SECTION STYLING */
+.features-section {
+    display: grid;        /* We experimented with css grid*/
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6.71em 10.71em;    /* Column gap and row gap*/
+    margin: 9.3em 0;
+    padding: 0 20em;
+}
+
+.feature-grid {
+    text-align: center;
+}
+
+.features-title {
+    margin: 1.78em 0 0.857em ;
+}
+
+/* PRODUCTIVE SECTION STYLING */
+.productive-section {
+    display: flex;
+    align-items: center;
+    padding: 0  7.143em;
+    flex: 1;
+}
+
+.content-box :not(:last-child) {
+    margin-bottom: 1.785rem;
+}
+
+.content-box p {
+    width: 350px;
+}
+
+.img-box img {
+    width: auto;
+    height: 460px;
+    margin-right: 3.214em;
+}
+
+.pr-link {
+    color: var(--cyan);
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+}
+
+.pr-link::before {
+    content:"";
+    position: absolute;
+    width: 100%;
+    height: 1.3px;
+    bottom: -7px;
+    background-color: var(--cyan);
+}
+
+/* TESTIMONIAL SECTION STYLING */
+.testimonial-section {      /* We tried using flexbox and also css grid*/
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.86em;
+    padding: 10em;
+}
+
+.testimonial-box {
+    background-color: var(--testimonial-bg);
+    padding: 3.21em 2.86em;
+    border-radius: .5em;
+}
+
+.testimonial-box p {
+    letter-spacing: 1px;
+}
+
+.box-1 {
+    position: relative;
+}
+
+.box-1::before {
+    content: "";
+    position: absolute;
+    background: url(./images/bg-quotes.png) no-repeat;
+    top: -2.2em;
+    left: -.6em;
+    width: 60px;
+    height: 60px;
+    z-index: -1;
+}
+
+.testimonial-section p {
+    margin-bottom: 1.78em;
+    font-size: 13px;
+}
+
+.user-section {
+    display: flex;
+}
+
+.user-section img {
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.user-info h3 {
+    font-size: 10px;
+}
+
+.user-info p {
+    font-size: 8px;
+}
+
+/* FORM SECTION STYLING */
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--intro-signup);
+    padding: 50px 74px 40px;
+    border-radius: .5em;
+    position: absolute;
+    left: 50%;
+    bottom: -150px;
+    transform: translateX(-50%);
+}
+
+.form h2 {
+    margin-bottom: 30px;
+}
+
+.form p {
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.form-input-section {
+    display: flex;
+    align-content: center;
+}
+.form input {
+    width: 482px;
+    height: 50px;
+    padding: 20px 47px;
+    border: none;
+    outline: 0;
+    color: var(--footer-bg);
+    border-radius: 3em;
+    margin-right: 20px;
+}
+
+
+.form button {
+   cursor: pointer;
+    color: var(--white);
+    margin: 0;
+}
+
+button::placeholder {
+    opacity: 0.4;
+}
+
+
+
+/* FOOTER SECTION STYLING */
+footer {
+    background-color: var(--footer-bg);
+    padding: 200px  80px 80px 100px;
+}
+
+.f-wrapper {
+    display: flex;
+    align-items: flex-start;
+    column-gap: 6em;
+}
+
+.f-location  {
+    display: flex;
+    align-items:flex-start;
+    gap: .8em;
+    width: 400px;
+}
+
+.footer-logo {
+    margin-bottom: 30px;
+}
+
+.f-contact img {
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.f-contact p {
+    margin-bottom: 20px;
+}
+
+footer p {
+    margin-bottom: 20px;
+}
+
+.f-social-links i {
+    margin-right: 10px;
+    border: 1px solid var(--white);
+    padding: 10px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.f-links a,
+.f-links2 a {
+    position: relative;
+}
+
+.f-links a::before,
+.f-links2 a::before {
+    content: "";
+    position: absolute;
+    width: 70%;
+    height: 2px;
+    background-color: var(--cyan);
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: all .6s;
+    left: 0;
+    bottom: -3px;
+}
+
+.f-links a:hover::before,
+.f-links2 a:hover::before {
+    transform: scaleX(1);
+}
+
+/*!   MOBIILE RESPONSIVESS */
+
+@media (max-width: 500px) {
+
+    /* GENERAL STYLES */
+      html {
+          font-size: 11px;
+      }
+
+      main {
+          padding-bottom: 100px;
+      }
+
+      h2 {
+          font-size: 25px;
+      }
+
+      /* Header section */
+      .navbar {
+          padding: 24px 20px;
+      }
+
+      .navbar :not(:last-child) {
+          padding-right: 23px;
+      }
+
+      .header-logo img {
+          width: 82px;
+          height: 24px; 
+      }
+
+      .current {
+          padding-right: 0;
+      }
+
+      /* showcase section */
+      .showcase {
+          background-image: url(./images/bg-curvy-mobile.svg);
+          overflow: hidden;
+      }
+      .showcase img {
+          width: 302px;
+          height: 225px;
+      }
+
+      .showcase h2 {
+          width: 350px;
+          margin: 23px;
+      }
+
+      .showcase p {
+          width: 380px;
+          font-size: 12px;
+          padding: 0 23px;
+      }
+
+      .cta {
+          width: 242px;
+          padding: 18px 0;
+      }
+
+      /* Features section */
+      .features-section {
+          grid-template-columns: 1fr;
+          gap: 87px 0;
+          padding: 0px 38px;
+          margin: 80px 0;
+      }
+
+      /* productive section */
+      .productive-section {
+          flex-direction: column;
+          padding: 0 25px;
+      }
+
+      .img-box img {
+          height: 215px;
+          margin: 0px 0px 52px 0px;
+      }
+
+      /* Testimonial Section */
+      .testimonial-section {
+          grid-template-columns: 1fr;
+          gap: 24px;
+          padding: 150px 22px;
+      }
+
+      .testimonial-box p {
+          letter-spacing: .7px;
+          font-size: 11px;
+      }
+
+      .box-1::before {
+          top: -3em;
+          left: -.7em;
+      }
+
+      /* Form Section */
+
+      .form {
+          padding: 40px 25px;
+          bottom: -175px;
+      }
+
+      .form-input-section  {
+          flex-direction: column;
+      }
+
+      .form input,
+      .form button  {
+           width: 280px;
+           margin: 0px 0px 5px 0px;
+      }
+      
+      /* Footer */
+
+      footer {
+          padding: 280px 27px 42px 27px;
+      }
+
+      .footer-logo img{
+          width: 120px;
+      }
+
+      .f-wrapper {
+          flex-direction: column;
+      }
+
+      .f-location {
+          width: 270px;
+          margin-bottom: 20px;
+      }
+
+      .f-contact {
+          margin-bottom: 20px;
+      }
+
+      .f-links {
+          margin-bottom: 30px;
+      }
+
+      .f-icon {
+          width: 15px;
+      }
+}
+
+
+/* ANIMATIONS */
+.showcase img,
+.showcase h2,
+.showcase p,
+.showcase a {
+    animation: fadeIn 2s forwards;
+  }
+  
+  @keyframes fadeIn {
+     from {
+        opacity: 0;
+        transform: translateY(-2em);
+     }
+  
+     to {
+        opacity: 1;
+        transform: translateY(0);
+     }
+  }
